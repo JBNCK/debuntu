@@ -6,7 +6,10 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 apt update && DEBIAN_FRONTEND=noninteractive apt upgrade -y
-DEBIAN_FRONTEND=noninteractive apt install gnupg curl -y
+DEBIAN_FRONTEND=noninteractive apt install gnupg curl sudo -y
+awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/passwd | while read user; do
+    /sbin/usermod -aG sudo "$user"
+done
 
 echo "deb http://deb.debian.org/debian stable-backports main contrib non-free" > /etc/apt/sources.list.d/debian-backports.list
 apt update
