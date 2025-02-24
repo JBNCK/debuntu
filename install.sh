@@ -12,11 +12,6 @@ apt update
 DEBIAN_FRONTEND=noninteractive apt -t stable-backports install linux-image-amd64 linux-headers-amd64 -y
 echo -e "Package: *\nPin: release a=stable-backports\nPin-Priority: 500" > /etc/apt/preferences.d/kernel-backports
 
-(cd /tmp && curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg)
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
-apt update
-DEBIAN_FRONTEND=noninteractive apt install google-chrome-stable -y
-
 set +e
 mkdir -v /etc/dconf/profile
 mkdir -v /etc/dconf/db/local.d
@@ -35,5 +30,11 @@ DEBIAN_FRONTEND=noninteractive apt install --install-recommends fonts-noto -y
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 dpkg -i /usr/share/debuntu/ubuntu-wallpapers.deb
+
+DEBIAN_FRONTEND=noninteractive apt install gnupg curl -y
+(cd /tmp && curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg)
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+apt update
+DEBIAN_FRONTEND=noninteractive apt install google-chrome-stable -y
 
 dconf update
