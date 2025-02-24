@@ -17,3 +17,7 @@ custom-theme-shrink=true
 
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/warty-final-ubuntu.png'
+
+[org/gnome/desktop/applications/terminal]
+exec='gnome-terminal'
+exec-args=''
