@@ -39,3 +39,4 @@ apt update
 DEBIAN_FRONTEND=noninteractive apt install google-chrome-stable -y
 
 dconf update
+/sbin/reboot
