@@ -6,6 +6,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 apt update && DEBIAN_FRONTEND=noninteractive apt upgrade -y
+DEBIAN_FRONTEND=noninteractive apt install gnupg curl -y
 
 echo "deb http://deb.debian.org/debian stable-backports main contrib non-free" > /etc/apt/sources.list.d/debian-backports.list
 apt update
@@ -32,7 +33,6 @@ flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/
 dpkg -i /usr/share/debuntu/ubuntu-wallpapers-xenial.deb
 dpkg -i /usr/share/debuntu/ubuntu-wallpapers.deb
 
-DEBIAN_FRONTEND=noninteractive apt install gnupg curl -y
 (cd /tmp && curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg)
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
 apt update
