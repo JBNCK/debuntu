@@ -29,6 +29,7 @@ DEBIAN_FRONTEND=noninteractive apt -t stable-backports install tlp tlp-rdw -y
 DEBIAN_FRONTEND=noninteractive apt install --install-recommends fonts-noto -y
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+dpkg -i /usr/share/debuntu/ubuntu-wallpapers-xenial.deb
 dpkg -i /usr/share/debuntu/ubuntu-wallpapers.deb
 
 DEBIAN_FRONTEND=noninteractive apt install gnupg curl -y
