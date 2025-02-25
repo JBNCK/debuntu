@@ -23,12 +23,15 @@ set -e
 cp -R etc/ /
 cp -R usr/ /
 
-set +e
-dpkg -i /usr/share/debuntu/debuntu-meta.deb
-set -e
-DEBIAN_FRONTEND=noninteractive apt install -f -y --no-install-recommends
+# set +e
+# dpkg -i /usr/share/debuntu/debuntu-meta.deb
+# set -e
+# DEBIAN_FRONTEND=noninteractive apt install -f -y --no-install-recommends
 
-DEBIAN_FRONTEND=noninteractive apt install gnome-shell-extension-appindicator gnome-shell-extension-dashtodock gnome-shell-extension-desktop-icons-ng flatpak gnome-software-plugin-flatpak geary gnome-calendar gnome-calculator eog vlc -y
+DEBIAN_FRONTEND=noninteractive apt install gnome-core chromium- epiphany-browser- gnome-www-browser- flatpak gnome-software-plugin-flatpak -y
+set +e
+DEBIAN_FRONTEND=noninteractive apt remove gnome-software-plugin-deb -y
+set -e
 DEBIAN_FRONTEND=noninteractive apt -t stable-backports install tlp tlp-rdw -y
 DEBIAN_FRONTEND=noninteractive apt install --install-recommends fonts-noto -y
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
