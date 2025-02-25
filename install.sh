@@ -28,7 +28,7 @@ cp -R usr/ /
 # set -e
 # DEBIAN_FRONTEND=noninteractive apt install -f -y --no-install-recommends
 
-DEBIAN_FRONTEND=noninteractive apt install gnome-core chromium- epiphany-browser- gnome-www-browser- flatpak gnome-software-plugin-flatpak -y
+DEBIAN_FRONTEND=noninteractive apt install gnome-core chromium- epiphany-browser- gnome-www-browser- flatpak gnome-software-plugin-flatpak gnome-terminal nautilus-extension-gnome-terminal -y
 set +e
 DEBIAN_FRONTEND=noninteractive apt remove gnome-software-plugin-deb -y
 set -e
