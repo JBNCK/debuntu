@@ -11,29 +11,22 @@ awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/passwd | while read user; do
     /sbin/usermod -aG sudo "$user"
 done
 
-echo "deb http://deb.debian.org/debian stable-backports main contrib non-free" > /etc/apt/sources.list.d/debian-backports.list
-apt update
-DEBIAN_FRONTEND=noninteractive apt -t stable-backports install linux-image-amd64 linux-headers-amd64 -y
-echo -e "Package: *\nPin: release a=stable-backports\nPin-Priority: 500" > /etc/apt/preferences.d/kernel-backports
-
 set +e
 mkdir -v /etc/dconf/profile
 mkdir -v /etc/dconf/db/local.d
 set -e
-cp -R etc/ /
-cp -R usr/ /
 
-# set +e
-# dpkg -i /usr/share/debuntu/debuntu-meta.deb
-# set -e
-# DEBIAN_FRONTEND=noninteractive apt install -f -y --no-install-recommends
-
-DEBIAN_FRONTEND=noninteractive apt install gnome-core chromium- epiphany-browser- gnome-www-browser- flatpak gnome-software-plugin-flatpak gnome-terminal nautilus-extension-gnome-terminal -y
+DEBIAN_FRONTEND=noninteractive apt install gnome-core chromium- chromium-browser- epiphany-browser- gnome-www-browser-firefox- firefox-esr- gnome-software-plugin-deb- gnome-terminal-y
 set +e
-DEBIAN_FRONTEND=noninteractive apt remove gnome-software-plugin-deb firefox-esr chromium epiphany-browser gnome-www-browser -y
+dpkg -i debuntu-meta.deb
 set -e
-DEBIAN_FRONTEND=noninteractive apt -t stable-backports install tlp tlp-rdw -y
+DEBIAN_FRONTEND=noninteractive apt install -f -y
+
+DEBIAN_FRONTEND=noninteractive apt install tlp tlp-rdw -y
+
 DEBIAN_FRONTEND=noninteractive apt install --install-recommends fonts-noto -y
+
+DEBIAN_FRONTEND=noninteractive apt install flatpak gnome-software-plugin-flatpak -y
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 dpkg -i /usr/share/debuntu/ubuntu-wallpapers-xenial.deb
@@ -44,5 +37,6 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl
 apt update
 DEBIAN_FRONTEND=noninteractive apt install google-chrome-stable -y
 
+DEBIAN_FRONTEND=noninteractive apt autoremove -y
 dconf update
 /sbin/reboot
