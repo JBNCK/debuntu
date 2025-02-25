@@ -1,0 +1,24 @@
+[org/gnome/shell]
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'ubuntu-appindicators@ubuntu.com', 'ding@rastersoft.com']
+favorite-apps = ['google-chrome.desktop', 'nautilus.desktop']
+
+[org/gnome/desktop/interface]
+icon-theme='Papirus'
+
+[org/gnome/shell/extensions/dash-to-dock]
+dock-position='LEFT'
+autohide=false
+dock-fixed=true
+show-trash=false
+show-mounts=false
+extend-height=true
+disable-overview-on-startup=true
+transparency-mode='DYNAMIC'
+custom-theme-shrink=true
+
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/warty-final-ubuntu.png'
+
+[org/gnome/desktop/applications/terminal]
+exec='gnome-terminal'
+exec-args=''
