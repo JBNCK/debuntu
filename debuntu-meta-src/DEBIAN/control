@@ -3,6 +3,6 @@ Version: 1.0
 Section: misc
 Priority: required
 Architecture: all
-Depends: gnome-shell-extension-dashtodock, gnome-shell-extension-desktop-icons-ng, gnome-shell-extension-appindicator, nautilus-extension-gnome-terminal, papirus-icon-theme, timeshift, unattended-upgrades, gnome-software-plugin-fwupd, flatpak, gnome-software-plugin-flatpak, snapd, gnome-software-plugin-snap, fonts-noto, google-chrome-stable
+Depends: gnome-shell-extension-dashtodock, gnome-shell-extension-desktop-icons-ng, gnome-shell-extension-appindicator, gnome-shell-extension-drive-menu, gnome-shell-extension-places-menu, gnome-shell-extension-workspace-indicator, nautilus-extension-gnome-terminal, papirus-icon-theme, timeshift, unattended-upgrades, gnome-software-plugin-fwupd, flatpak, gnome-software-plugin-flatpak, snapd, gnome-software-plugin-snap, fonts-noto, google-chrome-stable
 Maintainer: Jan Biernacik <jan@biernacik.org>
 Description: Dummy meta-package for debuntu.
