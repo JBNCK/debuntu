@@ -29,6 +29,9 @@ DEBIAN_FRONTEND=noninteractive apt install --install-recommends fonts-noto -y
 DEBIAN_FRONTEND=noninteractive apt install flatpak gnome-software-plugin-flatpak -y
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+DEBIAN_FRONTEND=noninteractive apt install snapd gnome-software-plugin-snap -y
+snap install snapd
+
 dpkg -i /usr/share/debuntu/ubuntu-wallpapers-xenial.deb
 dpkg -i /usr/share/debuntu/ubuntu-wallpapers.deb
 
@@ -40,4 +43,3 @@ DEBIAN_FRONTEND=noninteractive apt install google-chrome-stable -y
 echo "" > /etc/network/interfaces
 DEBIAN_FRONTEND=noninteractive apt autoremove -y
 dconf update
-/sbin/reboot
