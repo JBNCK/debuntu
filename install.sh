@@ -16,7 +16,7 @@ mkdir -v /etc/dconf/profile
 mkdir -v /etc/dconf/db/local.d
 set -e
 
-DEBIAN_FRONTEND=noninteractive apt install gnome-core chromium- chromium-browser- epiphany-browser- gnome-www-browser-firefox- firefox-esr- gnome-software-plugin-deb- gnome-terminal-y
+DEBIAN_FRONTEND=noninteractive apt install gnome-core chromium- chromium-browser- epiphany-browser- gnome-www-browser-firefox- firefox-esr- gnome-software-plugin-deb- gnome-terminal -y
 set +e
 dpkg -i debuntu-meta.deb
 set -e
@@ -37,6 +37,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl
 apt update
 DEBIAN_FRONTEND=noninteractive apt install google-chrome-stable -y
 
+echo "" > /etc/network/interfaces
 DEBIAN_FRONTEND=noninteractive apt autoremove -y
 dconf update
 /sbin/reboot
