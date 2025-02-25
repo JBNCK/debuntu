@@ -30,7 +30,7 @@ cp -R usr/ /
 
 DEBIAN_FRONTEND=noninteractive apt install gnome-core chromium- epiphany-browser- gnome-www-browser- flatpak gnome-software-plugin-flatpak gnome-terminal nautilus-extension-gnome-terminal -y
 set +e
-DEBIAN_FRONTEND=noninteractive apt remove gnome-software-plugin-deb -y
+DEBIAN_FRONTEND=noninteractive apt remove gnome-software-plugin-deb firefox-esr chromium epiphany-browser gnome-www-browser -y
 set -e
 DEBIAN_FRONTEND=noninteractive apt -t stable-backports install tlp tlp-rdw -y
 DEBIAN_FRONTEND=noninteractive apt install --install-recommends fonts-noto -y
